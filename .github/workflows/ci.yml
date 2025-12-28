@@ -1,0 +1,96 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint:
+    name: Lint & Format
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+      - name: Install Dependencies
+        run: npm ci
+      - name: Run ESLint
+        run: npm run lint
+      - name: Check Formatting
+        # Check if files are formatted correctly. 
+        # using --check so it fails if not formatted
+        run: npx prettier --check .
+
+  type-check:
+    name: Type Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+      - name: Install Dependencies
+        run: npm ci
+      - name: Run TSC
+        run: npm run type-check
+
+  security:
+    name: Security Audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: NPM Audit
+        # Fails if critical vulnerabilities are found
+        run: npm audit --audit-level=critical
+
+  build-android:
+    name: Build Android (Dry Run)
+    runs-on: ubuntu-latest
+    needs: [lint, type-check]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+      - name: Install Dependencies
+        run: npm ci
+      - name: Prebuild (Expo)
+        run: npx expo prebuild --platform android --no-install
+
+  # Note: iOS build usually requires macOS runner which consumes more minutes.
+  # We include it here but it can be disabled if minutes are a concern.
+  build-ios:
+    name: Build iOS (Dry Run)
+    runs-on: macos-latest
+    needs: [lint, type-check]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+      - name: Install Dependencies
+        run: npm ci
+      - name: Pod Install
+        run: |
+          npx expo prebuild --platform ios --no-install
+          cd ios && pod install
