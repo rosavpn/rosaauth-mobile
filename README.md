@@ -29,28 +29,31 @@ OwnAuth prioritizes your security above all else:
 
 ### Prerequisites
 
--   Node.js (LTS) & Yarn/Npm
--   **iOS**: Xcode & CocoaPods (Mac only)
--   **Android**: Android Studio & JDK
+- Node.js (LTS) & Yarn/Npm
+- **iOS**: Xcode & CocoaPods (Mac only)
+- **Android**: Android Studio & JDK
 
 ### Installation
 
 1.  **Clone the repository**
+
     ```bash
     git clone https://github.com/rosavpn/rosaauth-mobile.git
     cd rosaauth-mobile
     ```
 
 2.  **Install Dependencies**
+
     ```bash
     npm install
     ```
 
 3.  **Run on iOS** (Mac only)
+
     ```bash
     # Install Pods
     cd ios && pod install && cd ..
-    
+
     # Run Simulator
     npm run ios
     ```
@@ -67,15 +70,16 @@ To enable cloud sync, you need to host the compatible sync server.
 
 ## Stack
 
--   **Framework**: React Native (via Expo Prebuild)
--   **Crypto**: `react-native-quick-crypto` (accessing native OpenSSL/CommonCrypto)
--   **Language**: TypeScript
--   **Navigation**: React Native Screens / Custom Modals
--   **Storage**: Encrypted Async Storage (Conceptually) / Native Filesystem
+- **Framework**: React Native (via Expo Prebuild)
+- **Crypto**: `react-native-quick-crypto` (accessing native OpenSSL/CommonCrypto)
+- **Language**: TypeScript
+- **Navigation**: React Native Screens / Custom Modals
+- **Storage**: Encrypted Async Storage (Conceptually) / Native Filesystem
 
 ## License
 
 This project is licensed under the **MIT License**.
 
 ---
-*Own your authentication.*
+
+_Own your authentication._

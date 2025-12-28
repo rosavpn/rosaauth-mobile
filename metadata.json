@@ -1,7 +1,5 @@
 {
   "name": "RosaAuth",
   "description": "A high-security 2FA application with self-hosted cloud sync and E2EE support.",
-  "requestFramePermissions": [
-    "camera"
-  ]
+  "requestFramePermissions": ["camera"]
 }
