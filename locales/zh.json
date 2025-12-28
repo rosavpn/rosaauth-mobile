@@ -70,6 +70,7 @@
     "invalidQr": "无效的二维码"
   },
   "modals": {
+    "settingsTitle": "设置",
     "aboutTitle": "关于 OwnAuth",
     "aboutSubtitle": "简单，安全，自托管 2FA",
     "aboutDescription": "OwnAuth 是一款专为隐私和控制而设计的开源双因素身份验证应用程序。您的密钥经过加密，严格属于您。",

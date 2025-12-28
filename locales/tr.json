@@ -70,6 +70,7 @@
     "invalidQr": "Geçersiz QR Kodu"
   },
   "modals": {
+    "settingsTitle": "Ayarlar",
     "aboutTitle": "OwnAuth Hakkında",
     "aboutSubtitle": "Basit, Güvenli, Kendi Sunucunda 2FA",
     "aboutDescription": "OwnAuth, gizlilik ve kontrol için tasarlanmış açık kaynaklı bir iki faktörlü kimlik doğrulama uygulamasıdır. Anahtarlarınız şifrelenir ve tamamen size aittir.",
