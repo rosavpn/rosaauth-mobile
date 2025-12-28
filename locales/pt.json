@@ -70,6 +70,7 @@
     "invalidQr": "Código QR Inválido"
   },
   "modals": {
+    "settingsTitle": "Configurações",
     "aboutTitle": "Sobre o OwnAuth",
     "aboutSubtitle": "2FA Simples, Seguro e Próprio",
     "aboutDescription": "OwnAuth é um aplicativo de autenticação de dois fatores de código aberto projetado para privacidade e controle. Suas chaves são criptografadas e estritamente suas.",

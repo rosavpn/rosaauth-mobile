@@ -70,6 +70,7 @@
     "invalidQr": "Invalid QR Code"
   },
   "modals": {
+    "settingsTitle": "Settings",
     "aboutTitle": "About OwnAuth",
     "aboutSubtitle": "Simple, Secure, Self-Hosted 2FA",
     "aboutDescription": "OwnAuth is an open-source two-factor authentication app designed for privacy and control. Your keys are encrypted and strictly yours.",
