@@ -1,4 +1,3 @@
-
 export interface OTPAccount {
   id: string; // Should be UUID format
   serviceName: string;
@@ -19,7 +18,7 @@ export enum ModalType {
   SETTINGS,
   QR_SCANNER,
   EXPORT_QR,
-  ABOUT
+  ABOUT,
 }
 
 export interface AppSettings {

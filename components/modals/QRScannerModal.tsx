@@ -5,70 +5,85 @@ import { CameraView, useCameraPermissions } from 'expo-camera';
 import { styles } from '../../constants/styles';
 import { COLORS } from '../../constants/colors';
 
-export function QRScannerModal({ visible, onClose, onScan }: { visible: boolean, onClose: () => void, onScan: (data: string) => void }) {
-    const [permission, requestPermission] = useCameraPermissions();
+export function QRScannerModal({
+  visible,
+  onClose,
+  onScan,
+}: {
+  visible: boolean;
+  onClose: () => void;
+  onScan: (data: string) => void;
+}) {
+  const [permission, requestPermission] = useCameraPermissions();
 
-    useEffect(() => {
-        if (visible && !permission) {
-            requestPermission();
-        }
-    }, [visible, permission]);
-
-    if (!visible) return null;
-
-    if (!permission?.granted) {
-        return (
-            <Modal visible={visible} animationType="fade">
-                <View style={[styles.container, styles.centerContent]}>
-                    <AlertCircle size={48} color={COLORS.rose500} style={{ marginBottom: 20 }} />
-                    <Text style={[styles.textBaseBold, { marginBottom: 8, textAlign: 'center' }]}>Camera Access Required</Text>
-                    <Text style={[styles.textSmall, { marginBottom: 32, textAlign: 'center', maxWidth: 300 }]}>
-                        OwnAuth needs permission to access your camera to scan QR codes for 2FA setup.
-                    </Text>
-
-                    <View style={{ width: '100%', gap: 16 }}>
-                        <TouchableOpacity
-                            onPress={() => {
-                                if (permission && !permission.canAskAgain) {
-                                    Linking.openSettings();
-                                } else {
-                                    requestPermission();
-                                }
-                            }}
-                            style={styles.buttonPrimary}
-                        >
-                            <Text style={styles.buttonText}>
-                                {permission?.canAskAgain === false ? "Open Settings" : "Grant Permission"}
-                            </Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={onClose} style={[styles.buttonPrimary, { backgroundColor: COLORS.slate800 }]}>
-                            <Text style={[styles.buttonText, { color: COLORS.slate300 }]}>Cancel</Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-            </Modal>
-        );
+  useEffect(() => {
+    if (visible && !permission) {
+      requestPermission();
     }
+  }, [visible, permission]);
 
+  if (!visible) return null;
+
+  if (!permission?.granted) {
     return (
-        <Modal visible={visible} animationType="slide">
-            <View style={{ flex: 1, backgroundColor: 'black' }}>
-                <CameraView
-                    style={StyleSheet.absoluteFill}
-                    facing="back"
-                    onBarcodeScanned={({ data }) => onScan(data)}
-                />
+      <Modal visible={visible} animationType="fade">
+        <View style={[styles.container, styles.centerContent]}>
+          <AlertCircle size={48} color={COLORS.rose500} style={{ marginBottom: 20 }} />
+          <Text style={[styles.textBaseBold, { marginBottom: 8, textAlign: 'center' }]}>
+            Camera Access Required
+          </Text>
+          <Text
+            style={[styles.textSmall, { marginBottom: 32, textAlign: 'center', maxWidth: 300 }]}
+          >
+            OwnAuth needs permission to access your camera to scan QR codes for 2FA setup.
+          </Text>
 
-                <View style={styles.cameraOverlay}>
-                    <View style={styles.cameraHeader}>
-                        <Text style={styles.cameraTitle}>Scan QR Code</Text>
-                        <TouchableOpacity style={styles.closeButton} onPress={onClose}>
-                            <X size={24} color={COLORS.white} />
-                        </TouchableOpacity>
-                    </View>
-                    <View style={styles.cameraFrame} />
-                </View>
-            </View>
-        </Modal>
+          <View style={{ width: '100%', gap: 16 }}>
+            <TouchableOpacity
+              onPress={() => {
+                if (permission && !permission.canAskAgain) {
+                  Linking.openSettings();
+                } else {
+                  requestPermission();
+                }
+              }}
+              style={styles.buttonPrimary}
+            >
+              <Text style={styles.buttonText}>
+                {permission?.canAskAgain === false ? 'Open Settings' : 'Grant Permission'}
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={onClose}
+              style={[styles.buttonPrimary, { backgroundColor: COLORS.slate800 }]}
+            >
+              <Text style={[styles.buttonText, { color: COLORS.slate300 }]}>Cancel</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
     );
+  }
+
+  return (
+    <Modal visible={visible} animationType="slide">
+      <View style={{ flex: 1, backgroundColor: 'black' }}>
+        <CameraView
+          style={StyleSheet.absoluteFill}
+          facing="back"
+          onBarcodeScanned={({ data }) => onScan(data)}
+        />
+
+        <View style={styles.cameraOverlay}>
+          <View style={styles.cameraHeader}>
+            <Text style={styles.cameraTitle}>Scan QR Code</Text>
+            <TouchableOpacity style={styles.closeButton} onPress={onClose}>
+              <X size={24} color={COLORS.white} />
+            </TouchableOpacity>
+          </View>
+          <View style={styles.cameraFrame} />
+        </View>
+      </View>
+    </Modal>
+  );
 }

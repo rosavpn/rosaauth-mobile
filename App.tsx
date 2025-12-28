@@ -9,8 +9,6 @@ import {
   Alert,
   StatusBar,
   TouchableWithoutFeedback,
-  Keyboard,
-  Vibration
 } from 'react-native';
 import { install } from 'react-native-quick-crypto';
 
@@ -27,7 +25,7 @@ import {
   User,
   Key,
   Unlock,
-  HelpCircle
+  HelpCircle,
 } from 'lucide-react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Clipboard from 'expo-clipboard';
@@ -52,7 +50,7 @@ import { SettingsModal } from './components/modals/SettingsModal';
 const parseJwt = (token: string) => {
   try {
     return JSON.parse(atob(token.split('.')[1]));
-  } catch (e) {
+  } catch {
     return null;
   }
 };
@@ -79,7 +77,6 @@ export default function App() {
   });
 
   const [isInitializing, setIsInitializing] = useState(true);
-  const [isLoading, setIsLoading] = useState(false);
 
   // Load Settings
   useEffect(() => {
@@ -98,7 +95,7 @@ export default function App() {
           setAccounts([]);
         }
       } catch (e) {
-        console.error("Failed to load data", e);
+        console.error('Failed to load data', e);
       } finally {
         setIsInitializing(false);
       }
@@ -150,7 +147,12 @@ export default function App() {
   }
 
   // Sync Function
-  const performSync = async (key: CryptoKey, token: string, operationOverride?: SyncOperation, settingsOverride?: AppSettings) => {
+  const performSync = async (
+    key: CryptoKey,
+    token: string,
+    operationOverride?: SyncOperation,
+    settingsOverride?: AppSettings,
+  ) => {
     try {
       const currentSettings = settingsOverride || settings;
 
@@ -163,16 +165,18 @@ export default function App() {
         // Initial Full Sync: Upsert everything we have locally
         // NOTE: In a real robust sync, we might want to check diffs, but user said:
         // "application gets all data from asyncstorage, encrypt all them ... then send them 'upsert'"
-        const upsertOps = await Promise.all(accounts.map(async (acc) => {
-          const encryptedPayload = await encryptData(JSON.stringify(acc), key);
-          return {
-            op: 'upsert' as const,
-            data: {
-              id: acc.id,
-              encrypted_data: encryptedPayload
-            }
-          };
-        }));
+        const upsertOps = await Promise.all(
+          accounts.map(async (acc) => {
+            const encryptedPayload = await encryptData(JSON.stringify(acc), key);
+            return {
+              op: 'upsert' as const,
+              data: {
+                id: acc.id,
+                encrypted_data: encryptedPayload,
+              },
+            };
+          }),
+        );
         operations = upsertOps;
       }
 
@@ -194,36 +198,35 @@ export default function App() {
       }
 
       setAccounts(newAccounts); // Update State (Effects will persist to storage if logic allows, checking logic...)
-      // NOTE: Our persistence effect checks `!settings.cloudSyncEnabled`. 
+      // NOTE: Our persistence effect checks `!settings.cloudSyncEnabled`.
       // If Cloud Sync IS enabled, we do NOT persist to AsyncStorage directly via that effect?
       // User said: "update data in async storage. then we list the otp codes to user in UI"
       // Wait, if cloud sync is enabled, do we still store locally?
       // User Req 1: "local only stores auth codes in plain ... self hosted sync data as e2ee in self hosted cloud sync."
       // This implies in Sync mode, we might NOT rely on local plain text storage?
-      // OR do we cache it locally encrypted? 
+      // OR do we cache it locally encrypted?
       // User said: "application gets all data from asyncstorage, encrypt all them..." -> this implies starting from local plain.
       // User said: "update data in async storage" -> So we DO store it locally.
       // BUT, checking my persistence effect:
       // `if (!isLoading && !settings.cloudSyncEnabled && isUnlocked)`
-      // This disables local text save when sync is enabled. 
-      // This adheres to "local only stores plain... self hosted store e2ee". 
+      // This disables local text save when sync is enabled.
+      // This adheres to "local only stores plain... self hosted store e2ee".
       // So if Sync is ON, we might treat RAM as the only plain text source?
       // "we will always store cloud sync url and username ... but never use password or token"
       // If we don't store plain text locally when Sync is ON, then we are good.
       // BUT if the user goes offline, they lose data?
       // "local only stores auth codes in plain ... self hosted sync data as e2ee in self hosted cloud sync"
       // This strongly implies NO plain text local storage when Sync is ON.
-
     } catch (e) {
-      console.error("Sync Failed", e);
+      console.error('Sync Failed', e);
       if (e instanceof ApiError && e.status === 401) {
-        addToast("Session expired, please login again", "error");
+        addToast('Session expired, please login again', 'error');
         setIsUnlocked(false);
         setJwtToken(null);
         setMasterKey(null);
         setLoginPassword('');
       } else {
-        addToast("Sync Failed", "error");
+        addToast('Sync Failed', 'error');
       }
     }
   };
@@ -233,25 +236,24 @@ export default function App() {
 
     if (!settings.cloudSyncEnabled) {
       // Local Mode: No password logic really, just "unlocked" by default or if we had a local pass (not implemented)
-      // Current logic for local mode is it's always unlocked. 
+      // Current logic for local mode is it's always unlocked.
       // This function is mainly called from the Locked View which only shows if CloudSync is Enabled.
       return false;
     }
 
     if (!passwordToUse) {
-      addToast("Password required", "error");
+      addToast('Password required', 'error');
       return false;
     }
 
     try {
-      setIsLoading(true);
       // 1. Login
       const token = await api.login(settings, passwordToUse);
 
       // 2. Extract Salt
       const payload = parseJwt(token);
       if (!payload || !payload.salt) {
-        throw new Error("Invalid Token: Missing salt");
+        throw new Error('Invalid Token: Missing salt');
       }
 
       // 3. Derive Key
@@ -260,7 +262,7 @@ export default function App() {
       setJwtToken(token);
       setMasterKey(key);
       setIsUnlocked(true);
-      addToast("Vault Unlocked", "success");
+      addToast('Vault Unlocked', 'success');
 
       // 4. Initial Sync
       await performSync(key, token);
@@ -268,18 +270,18 @@ export default function App() {
       return true;
     } catch (e) {
       console.error(e);
-      addToast("Unlock/Login Failed", "error");
+      addToast('Unlock/Login Failed', 'error');
       return false;
     } finally {
-      setIsLoading(false);
+      // Loading finished
     }
   };
 
   const addToast = (message: string, type: 'success' | 'info' | 'error' = 'success') => {
     const id = Date.now();
-    setToasts(prev => [...prev, { id, message, type }]);
+    setToasts((prev) => [...prev, { id, message, type }]);
     setTimeout(() => {
-      setToasts(prev => prev.filter(t => t.id !== id));
+      setToasts((prev) => prev.filter((t) => t.id !== id));
     }, 2000);
   };
 
@@ -289,40 +291,36 @@ export default function App() {
   };
 
   const handleDelete = async (id: string) => {
-    Alert.alert(
-      "Delete Account",
-      "Are you sure you want to delete this account?",
-      [
-        { text: "Cancel", style: "cancel" },
-        {
-          text: "Delete",
-          style: "destructive",
-          onPress: async () => {
-            const oldAccounts = accounts;
-            setAccounts(prev => prev.filter(acc => acc.id !== id));
-            addToast("Account removed", "info");
-            setSelectedAccountId(null);
+    Alert.alert('Delete Account', 'Are you sure you want to delete this account?', [
+      { text: 'Cancel', style: 'cancel' },
+      {
+        text: 'Delete',
+        style: 'destructive',
+        onPress: async () => {
+          setAccounts((prev) => prev.filter((acc) => acc.id !== id));
+          addToast('Account removed', 'info');
+          setSelectedAccountId(null);
 
-            if (settings.cloudSyncEnabled && jwtToken && masterKey) {
-              try {
-                await performSync(masterKey, jwtToken, {
-                  op: 'delete',
-                  data: { id }
-                });
-              } catch (e) {
-                // Rollback if needed, or just alert?
-                // For now, simple optimistic update
-              }
+          if (settings.cloudSyncEnabled && jwtToken && masterKey) {
+            try {
+              await performSync(masterKey, jwtToken, {
+                op: 'delete',
+                data: { id },
+              });
+            } catch {
+              // Rollback if needed, or just alert?
+              // For now, simple optimistic update
             }
           }
-        }
-      ]
-    );
+        },
+      },
+    ]);
   };
 
-  const filteredAccounts = accounts.filter(acc =>
-    acc.serviceName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    acc.accountName.toLowerCase().includes(searchQuery.toLowerCase())
+  const filteredAccounts = accounts.filter(
+    (acc) =>
+      acc.serviceName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      acc.accountName.toLowerCase().includes(searchQuery.toLowerCase()),
   );
 
   // --- Locked View ---
@@ -360,10 +358,7 @@ export default function App() {
               </View>
             </View>
 
-            <TouchableOpacity
-              style={styles.buttonPrimary}
-              onPress={() => handleUnlock()}
-            >
+            <TouchableOpacity style={styles.buttonPrimary} onPress={() => handleUnlock()}>
               <Unlock size={24} color={COLORS.white} />
               <Text style={styles.buttonText}>Unlock Vault</Text>
             </TouchableOpacity>
@@ -438,7 +433,12 @@ export default function App() {
           <View style={styles.emptyState}>
             <Smartphone size={64} color={COLORS.slate700} />
             <Text style={styles.emptyText}>No accounts found</Text>
-            <Text style={[styles.textSmall, { textAlign: 'center', marginTop: 8, paddingHorizontal: 40 }]}>
+            <Text
+              style={[
+                styles.textSmall,
+                { textAlign: 'center', marginTop: 8, paddingHorizontal: 40 },
+              ]}
+            >
               Tap the + button in the bottom right to add new OTP codes.
             </Text>
           </View>
@@ -469,33 +469,42 @@ export default function App() {
               <View style={styles.actionSheet}>
                 <View style={styles.sheetHandle} />
 
-                <TouchableOpacity style={styles.actionButton} onPress={() => {
-                  const acc = accounts.find(a => a.id === selectedAccountId);
-                  if (acc) {
-                    setEditingAccount(acc);
-                    setActiveModal(ModalType.EXPORT_QR);
-                  }
-                  setSelectedAccountId(null);
-                }}>
+                <TouchableOpacity
+                  style={styles.actionButton}
+                  onPress={() => {
+                    const acc = accounts.find((a) => a.id === selectedAccountId);
+                    if (acc) {
+                      setEditingAccount(acc);
+                      setActiveModal(ModalType.EXPORT_QR);
+                    }
+                    setSelectedAccountId(null);
+                  }}
+                >
                   <Share2 size={20} color={COLORS.emerald400} />
                   <Text style={styles.actionText}>Export Account (QR)</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.actionButton} onPress={() => {
-                  const acc = accounts.find(a => a.id === selectedAccountId);
-                  if (acc) {
-                    setEditingAccount(acc);
-                    setActiveModal(ModalType.ACCOUNT_FORM);
-                  }
-                  setSelectedAccountId(null);
-                }}>
+                <TouchableOpacity
+                  style={styles.actionButton}
+                  onPress={() => {
+                    const acc = accounts.find((a) => a.id === selectedAccountId);
+                    if (acc) {
+                      setEditingAccount(acc);
+                      setActiveModal(ModalType.ACCOUNT_FORM);
+                    }
+                    setSelectedAccountId(null);
+                  }}
+                >
                   <Edit2 size={20} color={COLORS.rose400} />
                   <Text style={styles.actionText}>Edit Account</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.actionButton} onPress={() => {
-                  if (selectedAccountId) handleDelete(selectedAccountId);
-                }}>
+                <TouchableOpacity
+                  style={styles.actionButton}
+                  onPress={() => {
+                    if (selectedAccountId) handleDelete(selectedAccountId);
+                  }}
+                >
                   <Trash2 size={20} color={COLORS.rose500} />
                   <Text style={[styles.actionText, { color: COLORS.rose500 }]}>Delete Account</Text>
                 </TouchableOpacity>
@@ -526,8 +535,10 @@ export default function App() {
 
           if (editingAccount && editingAccount.id !== 'temp') {
             // Edit
-            updatedAccounts = accounts.map(a => a.id === editingAccount.id ? { ...newAcc, id: editingAccount.id } : a) as OTPAccount[];
-            accountToSync = updatedAccounts.find(a => a.id === editingAccount.id)!;
+            updatedAccounts = accounts.map((a) =>
+              a.id === editingAccount.id ? { ...newAcc, id: editingAccount.id } : a,
+            ) as OTPAccount[];
+            accountToSync = updatedAccounts.find((a) => a.id === editingAccount.id)!;
             addToast(`${newAcc.serviceName} updated!`);
           } else {
             // Add
@@ -546,8 +557,8 @@ export default function App() {
               op: 'upsert',
               data: {
                 id: accountToSync.id,
-                encrypted_data: encryptedPayload
-              }
+                encrypted_data: encryptedPayload,
+              },
             });
           }
         }}
@@ -562,7 +573,8 @@ export default function App() {
             const url = new URL(data);
             if (url.protocol === 'otpauth:') {
               const secret = url.searchParams.get('secret');
-              const issuer = url.searchParams.get('issuer') || url.pathname.split('/')[2]?.split(':')[0];
+              const issuer =
+                url.searchParams.get('issuer') || url.pathname.split('/')[2]?.split(':')[0];
               const label = url.pathname.split('/')[2]?.split(':')[1] || url.pathname.split('/')[2];
 
               if (secret) {
@@ -570,14 +582,14 @@ export default function App() {
                   id: 'temp',
                   serviceName: decodeURIComponent(issuer || ''),
                   accountName: decodeURIComponent(label || ''),
-                  secretKey: secret.toUpperCase()
+                  secretKey: secret.toUpperCase(),
                 });
                 setActiveModal(ModalType.ACCOUNT_FORM);
-                addToast("QR Code Scanned!");
+                addToast('QR Code Scanned!');
               }
             }
-          } catch (e) {
-            addToast("Invalid QR Code", "error");
+          } catch {
+            addToast('Invalid QR Code', 'error');
           }
         }}
       />
@@ -592,7 +604,6 @@ export default function App() {
         visible={activeModal === ModalType.SETTINGS}
         onClose={() => setActiveModal(ModalType.NONE)}
         settings={settings}
-        onUpdateSettings={setSettings}
         onVerifyAndEnable={async (pwd: string, newSettings?: AppSettings) => {
           // Use provided new settings (from local modal state) or fall back to current
           const useSettings = newSettings || settings;
@@ -601,10 +612,10 @@ export default function App() {
           const tempSettings = { ...useSettings, syncServerUrl: cleanUrl, cloudSyncEnabled: true };
           try {
             // 1. Verify Login manually using temp settings
-            setIsLoading(true);
+
             const token = await api.login(tempSettings, pwd);
             const payload = parseJwt(token);
-            if (!payload?.salt) throw new Error("No salt");
+            if (!payload?.salt) throw new Error('No salt');
             const key = await deriveMasterKey(pwd, payload.salt);
 
             if (settings.cloudSyncEnabled) {
@@ -626,10 +637,15 @@ export default function App() {
                 }
               }
               setAccounts(newAccounts);
-              addToast("Switched Account", "success");
+              addToast('Switched Account', 'success');
 
               // 4. Update Settings but LOCK VAULT
-              setSettings(prev => ({ ...prev, cloudSyncEnabled: true, syncServerUrl: cleanUrl, syncUsername: useSettings.syncUsername }));
+              setSettings((prev) => ({
+                ...prev,
+                cloudSyncEnabled: true,
+                syncServerUrl: cleanUrl,
+                syncUsername: useSettings.syncUsername,
+              }));
               setJwtToken(null);
               setMasterKey(null);
               setLoginPassword(''); // Clear password
@@ -639,7 +655,12 @@ export default function App() {
             }
 
             // If successful (FIRST ENABLE):
-            setSettings(prev => ({ ...prev, cloudSyncEnabled: true, syncServerUrl: cleanUrl, syncUsername: useSettings.syncUsername }));
+            setSettings((prev) => ({
+              ...prev,
+              cloudSyncEnabled: true,
+              syncServerUrl: cleanUrl,
+              syncUsername: useSettings.syncUsername,
+            }));
             setJwtToken(token);
             setMasterKey(key);
             setIsUnlocked(true);
@@ -647,39 +668,18 @@ export default function App() {
             // Sync Initial Local Data to Cloud
             if (!settings.cloudSyncEnabled) {
               await performSync(key, token, undefined, tempSettings);
-              addToast("Sync Enabled", "success");
+              addToast('Sync Enabled', 'success');
             }
 
             setActiveModal(ModalType.NONE); // Close Settings
             return true;
           } catch (e) {
             console.error(e);
-            addToast("Invalid Credentials / Sync Failed", "error");
+            addToast('Invalid Credentials / Sync Failed', 'error');
             return false;
           } finally {
-            setIsLoading(false);
+            // Loading finished
           }
-        }}
-        onLogout={() => {
-          if (settings.cloudSyncEnabled) {
-            setIsUnlocked(false);
-            setLoginPassword('');
-            setActiveModal(ModalType.NONE);
-            addToast("Vault Locked", "info");
-          }
-        }}
-        onDisableSync={() => {
-          // Reset everything
-          setSettings(prev => ({
-            ...prev,
-            cloudSyncEnabled: false,
-          }));
-          setIsUnlocked(true);
-          setLoginPassword('');
-          setJwtToken(null);
-          setMasterKey(null);
-
-          addToast("Sync Disabled", "info");
         }}
       />
 
