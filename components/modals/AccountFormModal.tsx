@@ -10,6 +10,7 @@ import {
   KeyboardAvoidingView,
 } from 'react-native';
 import { X, QrCode } from 'lucide-react-native';
+import { useTranslation } from 'react-i18next';
 import { OTPAccount } from '../../types';
 import { styles } from '../../constants/styles';
 import { COLORS } from '../../constants/colors';
@@ -27,6 +28,7 @@ export function AccountFormModal({
   onOpenScanner: () => void;
   initialData: OTPAccount | null;
 }) {
+  const { t } = useTranslation();
   const [service, setService] = useState('');
   const [email, setEmail] = useState('');
   const [secret, setSecret] = useState('');
@@ -52,7 +54,9 @@ export function AccountFormModal({
         <View style={styles.modalCard}>
           <View style={styles.modalHeader}>
             <Text style={styles.modalTitle}>
-              {initialData && initialData.id !== 'temp' ? 'Edit Account' : 'Add Account'}
+              {initialData && initialData.id !== 'temp'
+                ? t('accounts.editAccount')
+                : t('accounts.addAccount')}
             </Text>
             <TouchableOpacity style={styles.closeButton} onPress={onClose}>
               <X size={20} color={COLORS.slate300} />
@@ -62,16 +66,16 @@ export function AccountFormModal({
           {(!initialData || initialData.id === 'temp') && (
             <TouchableOpacity style={styles.scanButton} onPress={onOpenScanner}>
               <QrCode size={20} color={COLORS.rose400} />
-              <Text style={styles.scanButtonText}>Scan QR Code</Text>
+              <Text style={styles.scanButtonText}>{t('forms.scanQrCode')}</Text>
             </TouchableOpacity>
           )}
 
           <ScrollView showsVerticalScrollIndicator={false}>
             <View style={styles.formGroup}>
-              <Text style={styles.label}>SERVICE</Text>
+              <Text style={styles.label}>{t('forms.service')}</Text>
               <TextInput
                 style={styles.input}
-                placeholder="e.g. GitHub"
+                placeholder={t('forms.servicePlaceholder')}
                 placeholderTextColor={COLORS.slate500}
                 value={service}
                 onChangeText={setService}
@@ -79,10 +83,10 @@ export function AccountFormModal({
               />
             </View>
             <View style={styles.formGroup}>
-              <Text style={styles.label}>USERNAME / EMAIL</Text>
+              <Text style={styles.label}>{t('forms.usernameEmail')}</Text>
               <TextInput
                 style={styles.input}
-                placeholder="user@example.com"
+                placeholder={t('forms.usernamePlaceholder')}
                 placeholderTextColor={COLORS.slate500}
                 value={email}
                 onChangeText={setEmail}
@@ -90,10 +94,10 @@ export function AccountFormModal({
               />
             </View>
             <View style={styles.formGroup}>
-              <Text style={styles.label}>SECRET KEY</Text>
+              <Text style={styles.label}>{t('forms.secretKey')}</Text>
               <TextInput
                 style={styles.input}
-                placeholder="2FA KEY"
+                placeholder={t('forms.secretPlaceholder')}
                 placeholderTextColor={COLORS.slate500}
                 value={secret}
                 onChangeText={setSecret}
@@ -115,7 +119,9 @@ export function AccountFormModal({
               }}
             >
               <Text style={styles.buttonText}>
-                {initialData && initialData.id !== 'temp' ? 'Save Changes' : 'Add Account'}
+                {initialData && initialData.id !== 'temp'
+                  ? t('common.save')
+                  : t('accounts.addAccount')}
               </Text>
             </TouchableOpacity>
           </ScrollView>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, TextInput, Modal, ScrollView, Alert } from 'react-native';
 import { X, Shield, RefreshCw, Cloud, Info } from 'lucide-react-native';
+import { useTranslation } from 'react-i18next';
 import { AppSettings } from '../../types';
 import { styles } from '../../constants/styles';
 import { COLORS } from '../../constants/colors';
@@ -16,6 +17,7 @@ export function SettingsModal({
   settings: AppSettings;
   onVerifyAndEnable: (pwd: string, newSettings?: AppSettings) => Promise<boolean>;
 }) {
+  const { t } = useTranslation();
   const [tempPwd, setTempPwd] = useState('');
   const [localUrl, setLocalUrl] = useState(settings.syncServerUrl);
   const [localUsername, setLocalUsername] = useState(settings.syncUsername);
@@ -33,7 +35,7 @@ export function SettingsModal({
     <Modal visible={visible} animationType="slide" presentationStyle="pageSheet">
       <View style={styles.container}>
         <View style={[styles.modalHeader, { padding: 20 }]}>
-          <Text style={styles.modalTitle}>Settings</Text>
+          <Text style={styles.modalTitle}>{t('modals.settingsTitle')}</Text>
           <TouchableOpacity style={styles.closeButton} onPress={onClose}>
             <X size={20} color={COLORS.slate300} />
           </TouchableOpacity>
@@ -47,13 +49,13 @@ export function SettingsModal({
                 <Cloud size={24} color={COLORS.rose400} />
               </View>
               <View>
-                <Text style={styles.textBaseBold}>Self-Hosted Sync</Text>
-                <Text style={styles.textSmall}>End-to-end encrypted storage</Text>
+                <Text style={styles.textBaseBold}>{t('sync.selfHostedSyncTitle')}</Text>
+                <Text style={styles.textSmall}>{t('sync.e2eeStorage')}</Text>
               </View>
             </View>
 
             <View style={styles.formGroup}>
-              <Text style={styles.label}>SERVER URL</Text>
+              <Text style={styles.label}>{t('sync.serverUrl')}</Text>
               <TextInput
                 style={styles.input}
                 placeholder="https://subdomain.yourdomain.tld"
@@ -65,7 +67,7 @@ export function SettingsModal({
             </View>
 
             <View style={styles.formGroup}>
-              <Text style={styles.label}>USERNAME</Text>
+              <Text style={styles.label}>{t('sync.username')}</Text>
               <TextInput
                 style={styles.input}
                 placeholder="user@example.com"
@@ -77,7 +79,7 @@ export function SettingsModal({
             </View>
 
             <View style={styles.formGroup}>
-              <Text style={styles.label}>MASTER PASSWORD</Text>
+              <Text style={styles.label}>{t('auth.masterPassword')}</Text>
               <TextInput
                 style={styles.input}
                 placeholder="••••••••"
@@ -104,20 +106,16 @@ export function SettingsModal({
                   syncUsername: localUsername,
                 };
                 if (settings.cloudSyncEnabled) {
-                  Alert.alert(
-                    'Switch Account & Wipe Data',
-                    'Warning: Switching accounts will DELETE ALL LOCAL OTP CODES to prevent data leaks between accounts.\n\nThis action cannot be undone.',
-                    [
-                      { text: 'Cancel', style: 'cancel' },
-                      {
-                        text: 'Delete & Switch',
-                        style: 'destructive',
-                        onPress: () => {
-                          if (tempPwd) onVerifyAndEnable(tempPwd, newSettings);
-                        },
+                  Alert.alert(t('sync.switchAccountAlertTitle'), t('sync.switchAccountAlertBody'), [
+                    { text: t('common.cancel'), style: 'cancel' },
+                    {
+                      text: t('sync.deleteAndSwitch'),
+                      style: 'destructive',
+                      onPress: () => {
+                        if (tempPwd) onVerifyAndEnable(tempPwd, newSettings);
                       },
-                    ],
-                  );
+                    },
+                  ]);
                 } else {
                   if (tempPwd) onVerifyAndEnable(tempPwd, newSettings);
                 }
@@ -129,17 +127,14 @@ export function SettingsModal({
                 <Shield size={20} color={COLORS.white} />
               )}
               <Text style={styles.buttonText}>
-                {settings.cloudSyncEnabled ? 'Switch Account' : 'Enable & Sync'}
+                {settings.cloudSyncEnabled ? t('sync.switchAccount') : t('sync.enableAndSync')}
               </Text>
             </TouchableOpacity>
           </View>
 
           <View style={styles.infoBox}>
             <Info size={20} color={COLORS.slate500} />
-            <Text style={styles.infoText}>
-              OwnAuth - Your data is encrypted locally using AES before sync. Master password is
-              required to initiate the first connection.
-            </Text>
+            <Text style={styles.infoText}>{t('sync.infoBox')}</Text>
           </View>
         </ScrollView>
       </View>

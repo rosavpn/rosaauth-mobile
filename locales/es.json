@@ -1,0 +1,89 @@
+{
+  "common": {
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "save": "Guardar Cambios",
+    "edit": "Editar",
+    "add": "Añadir",
+    "copy": "Copiar",
+    "error": "Error",
+    "success": "Éxito",
+    "info": "Info",
+    "loading": "Cargando...",
+    "search": "Buscar",
+    "back": "Atrás"
+  },
+  "auth": {
+    "masterPassword": "Contraseña Maestra",
+    "unlockVault": "Desbloquear Bóveda",
+    "vaultLocked": "BÓVEDA BLOQUEADA",
+    "passwordRequired": "Contraseña requerida",
+    "unlockFailed": "Fallo al Desbloquear/Iniciar Sesión",
+    "sessionExpired": "La sesión expiró, por favor inicie sesión de nuevo",
+    "vaultUnlocked": "Bóveda Desbloqueada",
+    "vaultLockedInfo": "La Contraseña Maestra se usa para el descifrado E2EE."
+  },
+  "sync": {
+    "selfHostedSync": "SINCRONIZACIÓN PROPIA",
+    "selfHostedSyncTitle": "Sincronización Propia",
+    "e2eeStorage": "Almacenamiento cifrado de extremo a extremo",
+    "localOnly": "SOLO LOCAL",
+    "serverUrl": "URL DEL SERVIDOR",
+    "username": "NOMBRE DE USUARIO",
+    "enableAndSync": "Habilitar y Sincronizar",
+    "switchAccount": "Cambiar Cuenta",
+    "disableSync": "Deshabilitar Sincronización",
+    "syncFailed": "Fallo de Sincronización",
+    "syncEnabled": "Sincronización Habilitada",
+    "switchedAccount": "Cuenta Cambiada",
+    "vaultLockedToast": "Bóveda Bloqueada",
+    "syncDisabledToast": "Sincronización Deshabilitada",
+    "switchAccountAlertTitle": "Cambiar Cuenta y Borrar Datos",
+    "switchAccountAlertBody": "Advertencia: Cambiar de cuenta ELIMINARÁ TODOS LOS CÓDIGOS OTP LOCALES para prevenir fugas de datos entre cuentas.\n\nEsta acción no se puede deshacer.",
+    "deleteAndSwitch": "Eliminar y Cambiar",
+    "infoBox": "OwnAuth - Sus datos se cifran localmente usando AES antes de la sincronización. Se requiere la contraseña maestra para iniciar la primera conexión."
+  },
+  "accounts": {
+    "searchPlaceholder": "Buscar sus cuentas...",
+    "noAccounts": "No se encontraron cuentas",
+    "tapToAdd": "Toque el botón + en la parte inferior derecha para añadir nuevos códigos OTP.",
+    "addAccount": "Añadir Cuenta",
+    "editAccount": "Editar Cuenta",
+    "deleteAccount": "Eliminar Cuenta",
+    "exportAccount": "Exportar Cuenta (QR)",
+    "deleteConfirmationTitle": "Eliminar Cuenta",
+    "deleteConfirmationBody": "¿Está seguro de que desea eliminar esta cuenta?",
+    "accountRemoved": "Cuenta eliminada",
+    "added": "¡añadido!",
+    "updated": "¡actualizado!",
+    "copied": "¡código copiado!"
+  },
+  "forms": {
+    "service": "SERVICIO",
+    "usernameEmail": "USUARIO / EMAIL",
+    "secretKey": "CLAVE SECRETA",
+    "scanQrCode": "Escanear Código QR",
+    "servicePlaceholder": "ej. GitHub",
+    "usernamePlaceholder": "usuario@ejemplo.com",
+    "secretPlaceholder": "CLAVE 2FA",
+    "qrScanned": "¡Código QR Escaneado!",
+    "invalidQr": "Código QR Inválido"
+  },
+  "modals": {
+    "aboutTitle": "Sobre OwnAuth",
+    "aboutSubtitle": "2FA Simple, Seguro y Propio",
+    "aboutDescription": "OwnAuth es una aplicación de autenticación de dos factores de código abierto diseñada para la privacidad y el control. Sus claves están cifradas y son estrictamente suyas.",
+    "sourceCode": "Código Fuente",
+    "mobileApp": "App Móvil",
+    "syncServer": "Servidor de Sincronización",
+    "licenseInfo": "Publicado bajo Licencia MIT",
+    "exportQrTitle": "Exportar QR",
+    "exportQrBody": "Escanee este código QR con otra app de 2FA para transferir su cuenta."
+  },
+  "permissions": {
+    "cameraRequiredTitle": "Acceso a Cámara Requerido",
+    "cameraRequiredBody": "OwnAuth necesita permiso para acceder a su cámara para escanear códigos QR para la configuración de 2FA.",
+    "openSettings": "Abrir Ajustes",
+    "grantPermission": "Permitir Acceso"
+  }
+}

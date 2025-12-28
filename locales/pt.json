@@ -1,0 +1,89 @@
+{
+  "common": {
+    "cancel": "Cancelar",
+    "delete": "Excluir",
+    "save": "Salvar Alterações",
+    "edit": "Editar",
+    "add": "Adicionar",
+    "copy": "Copiar",
+    "error": "Erro",
+    "success": "Sucesso",
+    "info": "Info",
+    "loading": "Carregando...",
+    "search": "Buscar",
+    "back": "Voltar"
+  },
+  "auth": {
+    "masterPassword": "Senha Mestra",
+    "unlockVault": "Desbloquear Cofre",
+    "vaultLocked": "COFRE BLOQUEADO",
+    "passwordRequired": "Senha necessária",
+    "unlockFailed": "Falha no Desbloqueio/Login",
+    "sessionExpired": "Sessão expirada, faça login novamente",
+    "vaultUnlocked": "Cofre Desbloqueado",
+    "vaultLockedInfo": "A Senha Mestra é usada para descriptografia E2EE."
+  },
+  "sync": {
+    "selfHostedSync": "SINCRONIZAÇÃO PRÓPRIA",
+    "selfHostedSyncTitle": "Sincronização Própria",
+    "e2eeStorage": "Armazenamento criptografado de ponta a ponta",
+    "localOnly": "APENAS LOCAL",
+    "serverUrl": "URL DO SERVIDOR",
+    "username": "NOME DE USUÁRIO",
+    "enableAndSync": "Ativar e Sincronizar",
+    "switchAccount": "Trocar Conta",
+    "disableSync": "Desativar Sincronização",
+    "syncFailed": "Falha na Sincronização",
+    "syncEnabled": "Sincronização Ativada",
+    "switchedAccount": "Conta Trocada",
+    "vaultLockedToast": "Cofre Bloqueado",
+    "syncDisabledToast": "Sincronização Desativada",
+    "switchAccountAlertTitle": "Trocar Conta e Limpar Dados",
+    "switchAccountAlertBody": "Aviso: Trocar de conta EXCLUIRÁ TODOS OS CÓDIGOS OTP LOCAIS para evitar vazamento de dados entre contas.\n\nEsta ação não pode ser desfeita.",
+    "deleteAndSwitch": "Excluir e Trocar",
+    "infoBox": "OwnAuth - Seus dados são criptografados localmente usando AES antes da sincronização. A senha mestra é necessária para iniciar a primeira conexão."
+  },
+  "accounts": {
+    "searchPlaceholder": "Buscar suas contas...",
+    "noAccounts": "Nenhuma conta encontrada",
+    "tapToAdd": "Toque no botão + no canto inferior direito para adicionar novos códigos OTP.",
+    "addAccount": "Adicionar Conta",
+    "editAccount": "Editar Conta",
+    "deleteAccount": "Excluir Conta",
+    "exportAccount": "Exportar Conta (QR)",
+    "deleteConfirmationTitle": "Excluir Conta",
+    "deleteConfirmationBody": "Tem certeza de que deseja excluir esta conta?",
+    "accountRemoved": "Conta removida",
+    "added": "adicionado!",
+    "updated": "atualizado!",
+    "copied": "código copiado!"
+  },
+  "forms": {
+    "service": "SERVIÇO",
+    "usernameEmail": "USUÁRIO / EMAIL",
+    "secretKey": "CHAVE SECRETA",
+    "scanQrCode": "Escanear Código QR",
+    "servicePlaceholder": "ex. GitHub",
+    "usernamePlaceholder": "usuario@exemplo.com",
+    "secretPlaceholder": "CHAVE 2FA",
+    "qrScanned": "Código QR Escaneado!",
+    "invalidQr": "Código QR Inválido"
+  },
+  "modals": {
+    "aboutTitle": "Sobre o OwnAuth",
+    "aboutSubtitle": "2FA Simples, Seguro e Próprio",
+    "aboutDescription": "OwnAuth é um aplicativo de autenticação de dois fatores de código aberto projetado para privacidade e controle. Suas chaves são criptografadas e estritamente suas.",
+    "sourceCode": "Código Fonte",
+    "mobileApp": "App Móvel",
+    "syncServer": "Servidor de Sincronização",
+    "licenseInfo": "Lançado sob Licença MIT",
+    "exportQrTitle": "Exportar QR",
+    "exportQrBody": "Escaneie este código QR com outro aplicativo 2FA para transferir sua conta."
+  },
+  "permissions": {
+    "cameraRequiredTitle": "Acesso à Câmera Necessário",
+    "cameraRequiredBody": "OwnAuth precisa de permissão para acessar sua câmera para escanear códigos QR para configuração do 2FA.",
+    "openSettings": "Abrir Configurações",
+    "grantPermission": "Conceder Permissão"
+  }
+}
