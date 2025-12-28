@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Modal, TouchableOpacity, ScrollView, Linking, Image } from 'react-native';
-import { X, Github, ExternalLink } from 'lucide-react-native';
+import { X, Github, ExternalLink, Globe } from 'lucide-react-native';
 import { useTranslation } from 'react-i18next';
 import { styles } from '../../constants/styles';
 import { COLORS } from '../../constants/colors';
@@ -41,6 +41,19 @@ export function AboutModal({ visible, onClose }: { visible: boolean; onClose: ()
             {t('modals.aboutDescription')}
           </Text>
 
+          <TouchableOpacity
+            style={[styles.actionButton, { marginBottom: 24 }]}
+            onPress={() => openLink('https://rosavpn.github.io/rosaauth-mobile/')}
+          >
+            <Globe size={20} color={COLORS.slate300} />
+            <View style={{ flex: 1 }}>
+              <Text style={styles.textBase}>{t('modals.website')}</Text>
+              <Text style={[styles.textSmall, { fontSize: 12 }]}>
+                rosavpn.github.io/rosaauth-mobile
+              </Text>
+            </View>
+            <ExternalLink size={16} color={COLORS.slate500} />
+          </TouchableOpacity>
           <Text style={styles.label}>{t('modals.sourceCode')}</Text>
 
           <TouchableOpacity

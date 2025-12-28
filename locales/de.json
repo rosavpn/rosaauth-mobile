@@ -76,6 +76,7 @@
     "sourceCode": "Quellcode",
     "mobileApp": "Mobile App",
     "syncServer": "Sync Server",
+    "website": "Webseite",
     "licenseInfo": "Veröffentlicht unter MIT-Lizenz",
     "exportQrTitle": "QR Exportieren",
     "exportQrBody": "Scannen Sie diesen QR-Code mit einer anderen 2FA-App, um Ihr Konto zu übertragen."
