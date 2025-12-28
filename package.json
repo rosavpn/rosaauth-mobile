@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "android": "expo run:android",
     "ios": "expo run:ios",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint": "eslint .",
     "format": "prettier --write .",
     "type-check": "tsc --noEmit"
   },
@@ -34,6 +34,7 @@
     "react-native-svg": "15.12.1"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.2",
     "@types/node": "^22.14.0",
     "@types/react": "~19.1.10",
     "@typescript-eslint/eslint-plugin": "^8.50.1",
@@ -44,8 +45,10 @@
     "eslint-plugin-prettier": "^5.5.4",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-native": "^5.0.0",
+    "globals": "^16.5.0",
     "prettier": "^3.7.4",
     "typescript": "~5.8.2",
+    "typescript-eslint": "^8.50.1",
     "vite": "^6.2.0"
   }
 }
