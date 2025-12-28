@@ -76,6 +76,7 @@
     "sourceCode": "Kaynak Kodu",
     "mobileApp": "Mobil Uygulama",
     "syncServer": "Senkronizasyon Sunucusu",
+    "website": "Web Sitesi",
     "licenseInfo": "MIT Lisansı altında yayınlanmıştır",
     "exportQrTitle": "QR Dışa Aktar",
     "exportQrBody": "Hesabınızı transfer etmek için bu QR kodunu başka bir 2FA uygulamasıyla tarayın."
