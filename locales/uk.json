@@ -1,0 +1,89 @@
+{
+  "common": {
+    "cancel": "Скасувати",
+    "delete": "Видалити",
+    "save": "Зберегти",
+    "edit": "Редагувати",
+    "add": "Додати",
+    "copy": "Копіювати",
+    "error": "Помилка",
+    "success": "Успіх",
+    "info": "Інфо",
+    "loading": "Завантаження...",
+    "search": "Пошук",
+    "back": "Назад"
+  },
+  "auth": {
+    "masterPassword": "Майстер-пароль",
+    "unlockVault": "Розблокувати сховище",
+    "vaultLocked": "СХОВИЩЕ ЗАБЛОКОВАНО",
+    "passwordRequired": "Потрібен пароль",
+    "unlockFailed": "Помилка розблокування/входу",
+    "sessionExpired": "Сесія закінчилася, увійдіть знову",
+    "vaultUnlocked": "Сховище розблоковано",
+    "vaultLockedInfo": "Майстер-пароль використовується для E2EE розшифровки."
+  },
+  "sync": {
+    "selfHostedSync": "СВІЙ СЕРВЕР СИНХРОНІЗАЦІЇ",
+    "selfHostedSyncTitle": "Свій сервер синхронізації",
+    "e2eeStorage": "Наскрізне шифрування зберігання",
+    "localOnly": "ТІЛЬКИ ЛОКАЛЬНО",
+    "serverUrl": "URL СЕРВЕРА",
+    "username": "ІМ'Я КОРИСТУВАЧА",
+    "enableAndSync": "Увімкнути та синхронізувати",
+    "switchAccount": "Змінити акаунт",
+    "disableSync": "Вимкнути синхронізацію",
+    "syncFailed": "Помилка синхронізації",
+    "syncEnabled": "Синхронізація увімкнена",
+    "switchedAccount": "Акаунт змінено",
+    "vaultLockedToast": "Сховище заблоковано",
+    "syncDisabledToast": "Синхронізація вимкнена",
+    "switchAccountAlertTitle": "Змінити акаунт і видалити дані",
+    "switchAccountAlertBody": "Попередження: Зміна акаунта ВИДАЛИТЬ ВСІ ЛОКАЛЬНІ OTP КОДИ для запобігання витоку даних між акаунтами.\n\nЦю дію неможливо скасувати.",
+    "deleteAndSwitch": "Видалити та змінити",
+    "infoBox": "OwnAuth - Ваші дані шифруються локально за допомогою AES перед синхронізацією. Майстер-пароль необхідний для першого підключення."
+  },
+  "accounts": {
+    "searchPlaceholder": "Пошук акаунтів...",
+    "noAccounts": "Акаунтів не знайдено",
+    "tapToAdd": "Натисніть кнопку + внизу праворуч, щоб додати нові OTP коди.",
+    "addAccount": "Додати акаунт",
+    "editAccount": "Редагувати акаунт",
+    "deleteAccount": "Видалити акаунт",
+    "exportAccount": "Експорт акаунту (QR)",
+    "deleteConfirmationTitle": "Видалити акаунт",
+    "deleteConfirmationBody": "Ви впевнені, що хочете видалити цей акаунт?",
+    "accountRemoved": "Акаунт видалено",
+    "added": "додано!",
+    "updated": "оновлено!",
+    "copied": "код скопійовано!"
+  },
+  "forms": {
+    "service": "СЕРВІС",
+    "usernameEmail": "КОРИСТУВАЧ / EMAIL",
+    "secretKey": "СЕКРЕТНИЙ КЛЮЧ",
+    "scanQrCode": "Сканувати QR-код",
+    "servicePlaceholder": "напр. GitHub",
+    "usernamePlaceholder": "user@example.com",
+    "secretPlaceholder": "2FA КЛЮЧ",
+    "qrScanned": "QR-код скановано!",
+    "invalidQr": "Недійсний QR-код"
+  },
+  "modals": {
+    "aboutTitle": "Про OwnAuth",
+    "aboutSubtitle": "Простий, Безпечний, Свій 2FA",
+    "aboutDescription": "OwnAuth — це додаток для двофакторної аутентифікації з відкритим вихідним кодом, створений для приватності та контролю. Ваші ключі зашифровані і належать тільки вам.",
+    "sourceCode": "Вихідний код",
+    "mobileApp": "Мобільний додаток",
+    "syncServer": "Сервер синхронізації",
+    "licenseInfo": "Випущено під ліцензією MIT",
+    "exportQrTitle": "Експорт QR",
+    "exportQrBody": "Відскануйте цей QR-код іншим 2FA додатком, щоб перенести акаунт."
+  },
+  "permissions": {
+    "cameraRequiredTitle": "Потрібен доступ до камери",
+    "cameraRequiredBody": "OwnAuth потрібен дозвіл на використання камери для сканування QR-кодів при налаштуванні 2FA.",
+    "openSettings": "Відкрити налаштування",
+    "grantPermission": "Надати дозвіл"
+  }
+}

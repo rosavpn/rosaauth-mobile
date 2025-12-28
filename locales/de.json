@@ -1,0 +1,89 @@
+{
+  "common": {
+    "cancel": "Abbrechen",
+    "delete": "Löschen",
+    "save": "Speichern",
+    "edit": "Bearbeiten",
+    "add": "Hinzufügen",
+    "copy": "Kopieren",
+    "error": "Fehler",
+    "success": "Erfolg",
+    "info": "Info",
+    "loading": "Laden...",
+    "search": "Suchen",
+    "back": "Zurück"
+  },
+  "auth": {
+    "masterPassword": "Master-Passwort",
+    "unlockVault": "Tresor Entsperren",
+    "vaultLocked": "TRESOR GESPERRT",
+    "passwordRequired": "Passwort erforderlich",
+    "unlockFailed": "Entsperren/Anmeldung fehlgeschlagen",
+    "sessionExpired": "Sitzung abgelaufen, bitte neu anmelden",
+    "vaultUnlocked": "Tresor Entsperrt",
+    "vaultLockedInfo": "Master-Passwort wird für E2EE-Entschlüsselung verwendet."
+  },
+  "sync": {
+    "selfHostedSync": "SELBST-GEHOSTETE SYNC",
+    "selfHostedSyncTitle": "Selbst-Gehostete Sync",
+    "e2eeStorage": "Ende-zu-Ende verschlüsselter Speicher",
+    "localOnly": "NUR LOKAL",
+    "serverUrl": "SERVER URL",
+    "username": "BENUTZERNAME",
+    "enableAndSync": "Aktivieren & Synchronisieren",
+    "switchAccount": "Konto Wechseln",
+    "disableSync": "Sync Deaktivieren",
+    "syncFailed": "Synchronisierung Fehlgeschlagen",
+    "syncEnabled": "Synchronisierung Aktiviert",
+    "switchedAccount": "Konto Gewechselt",
+    "vaultLockedToast": "Tresor Gesperrt",
+    "syncDisabledToast": "Sync Deaktiviert",
+    "switchAccountAlertTitle": "Konto Wechseln & Daten Löschen",
+    "switchAccountAlertBody": "Warnung: Das Wechseln des Kontos LÖSCHT ALLE LOKALEN OTP-CODES, um Datenlecks zwischen Konten zu verhindern.\n\nDiese Aktion kann nicht rückgängig gemacht werden.",
+    "deleteAndSwitch": "Löschen & Wechseln",
+    "infoBox": "OwnAuth - Ihre Daten werden vor der Synchronisierung lokal mit AES verschlüsselt. Das Master-Passwort ist für die erste Verbindung erforderlich."
+  },
+  "accounts": {
+    "searchPlaceholder": "Konten suchen...",
+    "noAccounts": "Keine Konten gefunden",
+    "tapToAdd": "Tippen Sie auf die + Taste unten rechts, um neue OTP-Codes hinzuzufügen.",
+    "addAccount": "Konto Hinzufügen",
+    "editAccount": "Konto Bearbeiten",
+    "deleteAccount": "Konto Löschen",
+    "exportAccount": "Konto Exportieren (QR)",
+    "deleteConfirmationTitle": "Konto Löschen",
+    "deleteConfirmationBody": "Sind Sie sicher, dass Sie dieses Konto löschen möchten?",
+    "accountRemoved": "Konto entfernt",
+    "added": "hinzugefügt!",
+    "updated": "aktualisiert!",
+    "copied": "Code kopiert!"
+  },
+  "forms": {
+    "service": "DIENST",
+    "usernameEmail": "BENUTZER / EMAIL",
+    "secretKey": "GEHEIMER SCHLÜSSEL",
+    "scanQrCode": "QR-Code Scannen",
+    "servicePlaceholder": "z.B. GitHub",
+    "usernamePlaceholder": "user@beispiel.de",
+    "secretPlaceholder": "2FA SCHLÜSSEL",
+    "qrScanned": "QR-Code Gescannt!",
+    "invalidQr": "Ungültiger QR-Code"
+  },
+  "modals": {
+    "aboutTitle": "Über OwnAuth",
+    "aboutSubtitle": "Einfach, Sicher, Selbst-Gehostet 2FA",
+    "aboutDescription": "OwnAuth ist eine Open-Source-Zwei-Faktor-Authentifizierungs-App, die für Datenschutz und Kontrolle entwickelt wurde. Ihre Schlüssel sind verschlüsselt und gehören streng Ihnen.",
+    "sourceCode": "Quellcode",
+    "mobileApp": "Mobile App",
+    "syncServer": "Sync Server",
+    "licenseInfo": "Veröffentlicht unter MIT-Lizenz",
+    "exportQrTitle": "QR Exportieren",
+    "exportQrBody": "Scannen Sie diesen QR-Code mit einer anderen 2FA-App, um Ihr Konto zu übertragen."
+  },
+  "permissions": {
+    "cameraRequiredTitle": "Kamerazugriff Erforderlich",
+    "cameraRequiredBody": "OwnAuth benötigt Zugriff auf Ihre Kamera, um QR-Codes für die 2FA-Einrichtung zu scannen.",
+    "openSettings": "Einstellungen Öffnen",
+    "grantPermission": "Zugriff Gewähren"
+  }
+}

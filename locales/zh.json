@@ -1,0 +1,89 @@
+{
+  "common": {
+    "cancel": "取消",
+    "delete": "删除",
+    "save": "保存更改",
+    "edit": "编辑",
+    "add": "添加",
+    "copy": "复制",
+    "error": "错误",
+    "success": "成功",
+    "info": "信息",
+    "loading": "加载中...",
+    "search": "搜索",
+    "back": "返回"
+  },
+  "auth": {
+    "masterPassword": "主密码",
+    "unlockVault": "解锁保险库",
+    "vaultLocked": "保险库已锁定",
+    "passwordRequired": "需要密码",
+    "unlockFailed": "解锁/登录失败",
+    "sessionExpired": "会话已过期，请重新登录",
+    "vaultUnlocked": "保险库已解锁",
+    "vaultLockedInfo": "主密码用于端到端加密解密。"
+  },
+  "sync": {
+    "selfHostedSync": "自托管同步",
+    "selfHostedSyncTitle": "自托管同步",
+    "e2eeStorage": "端到端加密存储",
+    "localOnly": "仅本地",
+    "serverUrl": "服务器 URL",
+    "username": "用户名",
+    "enableAndSync": "启用并同步",
+    "switchAccount": "切换账户",
+    "disableSync": "禁用同步",
+    "syncFailed": "同步失败",
+    "syncEnabled": "同步已启用",
+    "switchedAccount": "已切换账户",
+    "vaultLockedToast": "保险库已锁定",
+    "syncDisabledToast": "同步已禁用",
+    "switchAccountAlertTitle": "切换账户并清除数据",
+    "switchAccountAlertBody": "警告：切换账户将删除所有本地 OTP 代码，以防止账户间数据泄露。\n\n此操作无法撤销。",
+    "deleteAndSwitch": "删除并切换",
+    "infoBox": "OwnAuth - 您的数据在同步前使用 AES 进行本地加密。首次连接需要主密码。"
+  },
+  "accounts": {
+    "searchPlaceholder": "搜索您的账户...",
+    "noAccounts": "未找到账户",
+    "tapToAdd": "点击右下角的 + 按钮添加新的 OTP 代码。",
+    "addAccount": "添加账户",
+    "editAccount": "编辑账户",
+    "deleteAccount": "删除账户",
+    "exportAccount": "导出账户 (QR)",
+    "deleteConfirmationTitle": "删除账户",
+    "deleteConfirmationBody": "您确定要删除此账户吗？",
+    "accountRemoved": "账户已移除",
+    "added": "已添加！",
+    "updated": "已更新！",
+    "copied": "代码已复制！"
+  },
+  "forms": {
+    "service": "服务",
+    "usernameEmail": "用户 / 邮箱",
+    "secretKey": "密钥",
+    "scanQrCode": "扫描二维码",
+    "servicePlaceholder": "例如 GitHub",
+    "usernamePlaceholder": "user@example.com",
+    "secretPlaceholder": "2FA 密钥",
+    "qrScanned": "二维码已扫描！",
+    "invalidQr": "无效的二维码"
+  },
+  "modals": {
+    "aboutTitle": "关于 OwnAuth",
+    "aboutSubtitle": "简单，安全，自托管 2FA",
+    "aboutDescription": "OwnAuth 是一款专为隐私和控制而设计的开源双因素身份验证应用程序。您的密钥经过加密，严格属于您。",
+    "sourceCode": "源代码",
+    "mobileApp": "移动应用",
+    "syncServer": "同步服务器",
+    "licenseInfo": "依据 MIT 许可证发布",
+    "exportQrTitle": "导出 QR",
+    "exportQrBody": "使用另一个 2FA 应用程序扫描此二维码以转移您的账户。"
+  },
+  "permissions": {
+    "cameraRequiredTitle": "需要相机权限",
+    "cameraRequiredBody": "OwnAuth 需要访问您的相机以扫描二维码进行 2FA 设置。",
+    "openSettings": "打开设置",
+    "grantPermission": "授予权限"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "common": {
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "save": "Save Changes",
+    "edit": "Edit",
+    "add": "Add",
+    "copy": "Copy",
+    "error": "Error",
+    "success": "Success",
+    "info": "Info",
+    "loading": "Loading...",
+    "search": "Search",
+    "back": "Back"
+  },
+  "auth": {
+    "masterPassword": "Master Password",
+    "unlockVault": "Unlock Vault",
+    "vaultLocked": "VAULT LOCKED",
+    "passwordRequired": "Password required",
+    "unlockFailed": "Unlock/Login Failed",
+    "sessionExpired": "Session expired, please login again",
+    "vaultUnlocked": "Vault Unlocked",
+    "vaultLockedInfo": "Master Password is used for E2EE decryption."
+  },
+  "sync": {
+    "selfHostedSync": "SELF-HOSTED SYNC",
+    "selfHostedSyncTitle": "Self-Hosted Sync",
+    "e2eeStorage": "End-to-end encrypted storage",
+    "localOnly": "LOCAL ONLY",
+    "serverUrl": "SERVER URL",
+    "username": "USERNAME",
+    "enableAndSync": "Enable & Sync",
+    "switchAccount": "Switch Account",
+    "disableSync": "Disable Sync",
+    "syncFailed": "Sync Failed",
+    "syncEnabled": "Sync Enabled",
+    "switchedAccount": "Switched Account",
+    "vaultLockedToast": "Vault Locked",
+    "syncDisabledToast": "Sync Disabled",
+    "switchAccountAlertTitle": "Switch Account & Wipe Data",
+    "switchAccountAlertBody": "Warning: Switching accounts will DELETE ALL LOCAL OTP CODES to prevent data leaks between accounts.\n\nThis action cannot be undone.",
+    "deleteAndSwitch": "Delete & Switch",
+    "infoBox": "OwnAuth - Your data is encrypted locally using AES before sync. Master password is required to initiate the first connection."
+  },
+  "accounts": {
+    "searchPlaceholder": "Search your accounts...",
+    "noAccounts": "No accounts found",
+    "tapToAdd": "Tap the + button in the bottom right to add new OTP codes.",
+    "addAccount": "Add Account",
+    "editAccount": "Edit Account",
+    "deleteAccount": "Delete Account",
+    "exportAccount": "Export Account (QR)",
+    "deleteConfirmationTitle": "Delete Account",
+    "deleteConfirmationBody": "Are you sure you want to delete this account?",
+    "accountRemoved": "Account removed",
+    "added": "added!",
+    "updated": "updated!",
+    "copied": "code copied!"
+  },
+  "forms": {
+    "service": "SERVICE",
+    "usernameEmail": "USERNAME / EMAIL",
+    "secretKey": "SECRET KEY",
+    "scanQrCode": "Scan QR Code",
+    "servicePlaceholder": "e.g. GitHub",
+    "usernamePlaceholder": "user@example.com",
+    "secretPlaceholder": "2FA KEY",
+    "qrScanned": "QR Code Scanned!",
+    "invalidQr": "Invalid QR Code"
+  },
+  "modals": {
+    "aboutTitle": "About OwnAuth",
+    "aboutSubtitle": "Simple, Secure, Self-Hosted 2FA",
+    "aboutDescription": "OwnAuth is an open-source two-factor authentication app designed for privacy and control. Your keys are encrypted and strictly yours.",
+    "sourceCode": "Source Code",
+    "mobileApp": "Mobile App",
+    "syncServer": "Sync Server",
+    "licenseInfo": "Released under MIT License",
+    "exportQrTitle": "Export QR",
+    "exportQrBody": "Scan this QR code with another 2FA app to transfer your account."
+  },
+  "permissions": {
+    "cameraRequiredTitle": "Camera Access Required",
+    "cameraRequiredBody": "OwnAuth needs permission to access your camera to scan QR codes for 2FA setup.",
+    "openSettings": "Open Settings",
+    "grantPermission": "Grant Permission"
+  }
+}

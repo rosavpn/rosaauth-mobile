@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { View, Text, TouchableOpacity, Modal, StyleSheet, Linking } from 'react-native';
 import { X, AlertCircle } from 'lucide-react-native';
 import { CameraView, useCameraPermissions } from 'expo-camera';
+import { useTranslation } from 'react-i18next';
 import { styles } from '../../constants/styles';
 import { COLORS } from '../../constants/colors';
 
@@ -14,6 +15,7 @@ export function QRScannerModal({
   onClose: () => void;
   onScan: (data: string) => void;
 }) {
+  const { t } = useTranslation();
   const [permission, requestPermission] = useCameraPermissions();
 
   useEffect(() => {
@@ -30,12 +32,12 @@ export function QRScannerModal({
         <View style={[styles.container, styles.centerContent]}>
           <AlertCircle size={48} color={COLORS.rose500} style={{ marginBottom: 20 }} />
           <Text style={[styles.textBaseBold, { marginBottom: 8, textAlign: 'center' }]}>
-            Camera Access Required
+            {t('permissions.cameraRequiredTitle')}
           </Text>
           <Text
             style={[styles.textSmall, { marginBottom: 32, textAlign: 'center', maxWidth: 300 }]}
           >
-            OwnAuth needs permission to access your camera to scan QR codes for 2FA setup.
+            {t('permissions.cameraRequiredBody')}
           </Text>
 
           <View style={{ width: '100%', gap: 16 }}>
@@ -50,14 +52,18 @@ export function QRScannerModal({
               style={styles.buttonPrimary}
             >
               <Text style={styles.buttonText}>
-                {permission?.canAskAgain === false ? 'Open Settings' : 'Grant Permission'}
+                {permission?.canAskAgain === false
+                  ? t('permissions.openSettings')
+                  : t('permissions.grantPermission')}
               </Text>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={onClose}
               style={[styles.buttonPrimary, { backgroundColor: COLORS.slate800 }]}
             >
-              <Text style={[styles.buttonText, { color: COLORS.slate300 }]}>Cancel</Text>
+              <Text style={[styles.buttonText, { color: COLORS.slate300 }]}>
+                {t('common.cancel')}
+              </Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -76,7 +82,7 @@ export function QRScannerModal({
 
         <View style={styles.cameraOverlay}>
           <View style={styles.cameraHeader}>
-            <Text style={styles.cameraTitle}>Scan QR Code</Text>
+            <Text style={styles.cameraTitle}>{t('forms.scanQrCode')}</Text>
             <TouchableOpacity style={styles.closeButton} onPress={onClose}>
               <X size={24} color={COLORS.white} />
             </TouchableOpacity>

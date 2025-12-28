@@ -11,6 +11,8 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native';
 import { install } from 'react-native-quick-crypto';
+import './services/i18n'; // Init i18n
+import { useTranslation } from 'react-i18next';
 
 install(); // Polyfill global.crypto
 import {
@@ -56,6 +58,7 @@ const parseJwt = (token: string) => {
 };
 
 export default function App() {
+  const { t } = useTranslation();
   const [accounts, setAccounts] = useState<OTPAccount[]>([]);
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [toasts, setToasts] = useState<ToastMessage[]>([]);
@@ -220,13 +223,13 @@ export default function App() {
     } catch (e) {
       console.error('Sync Failed', e);
       if (e instanceof ApiError && e.status === 401) {
-        addToast('Session expired, please login again', 'error');
+        addToast(t('auth.sessionExpired'), 'error');
         setIsUnlocked(false);
         setJwtToken(null);
         setMasterKey(null);
         setLoginPassword('');
       } else {
-        addToast('Sync Failed', 'error');
+        addToast(t('sync.syncFailed'), 'error');
       }
     }
   };
@@ -242,7 +245,7 @@ export default function App() {
     }
 
     if (!passwordToUse) {
-      addToast('Password required', 'error');
+      addToast(t('auth.passwordRequired'), 'error');
       return false;
     }
 
@@ -262,7 +265,7 @@ export default function App() {
       setJwtToken(token);
       setMasterKey(key);
       setIsUnlocked(true);
-      addToast('Vault Unlocked', 'success');
+      addToast(t('auth.vaultUnlocked'), 'success');
 
       // 4. Initial Sync
       await performSync(key, token);
@@ -270,7 +273,7 @@ export default function App() {
       return true;
     } catch (e) {
       console.error(e);
-      addToast('Unlock/Login Failed', 'error');
+      addToast(t('auth.unlockFailed'), 'error');
       return false;
     } finally {
       // Loading finished
@@ -287,18 +290,18 @@ export default function App() {
 
   const copyToClipboard = async (text: string, service: string) => {
     await Clipboard.setStringAsync(text);
-    addToast(`${service} code copied!`);
+    addToast(`${service} ${t('accounts.copied')}`);
   };
 
   const handleDelete = async (id: string) => {
-    Alert.alert('Delete Account', 'Are you sure you want to delete this account?', [
-      { text: 'Cancel', style: 'cancel' },
+    Alert.alert(t('accounts.deleteConfirmationTitle'), t('accounts.deleteConfirmationBody'), [
+      { text: t('common.cancel'), style: 'cancel' },
       {
-        text: 'Delete',
+        text: t('common.delete'),
         style: 'destructive',
         onPress: async () => {
           setAccounts((prev) => prev.filter((acc) => acc.id !== id));
-          addToast('Account removed', 'info');
+          addToast(t('accounts.accountRemoved'), 'info');
           setSelectedAccountId(null);
 
           if (settings.cloudSyncEnabled && jwtToken && masterKey) {
@@ -334,7 +337,7 @@ export default function App() {
           </View>
           <Text style={styles.titleLarge}>OwnAuth</Text>
           <View style={{ alignItems: 'center', marginBottom: 40 }}>
-            <Text style={styles.labelAccent}>VAULT LOCKED</Text>
+            <Text style={styles.labelAccent}>{t('auth.vaultLocked')}</Text>
             <Text style={styles.textSmall}>{settings.syncServerUrl}</Text>
           </View>
 
@@ -349,7 +352,7 @@ export default function App() {
                 <Key size={20} color={COLORS.slate500} style={styles.inputIcon} />
                 <TextInput
                   style={[styles.input, { paddingLeft: 48 }]}
-                  placeholder="Master Password"
+                  placeholder={t('auth.masterPassword')}
                   placeholderTextColor={COLORS.slate500}
                   secureTextEntry
                   value={loginPassword}
@@ -360,10 +363,10 @@ export default function App() {
 
             <TouchableOpacity style={styles.buttonPrimary} onPress={() => handleUnlock()}>
               <Unlock size={24} color={COLORS.white} />
-              <Text style={styles.buttonText}>Unlock Vault</Text>
+              <Text style={styles.buttonText}>{t('auth.unlockVault')}</Text>
             </TouchableOpacity>
           </View>
-          <Text style={styles.footerNote}>Master Password is used for E2EE decryption.</Text>
+          <Text style={styles.footerNote}>{t('auth.vaultLockedInfo')}</Text>
         </View>
         <ToastContainer toasts={toasts} />
       </View>
@@ -385,7 +388,7 @@ export default function App() {
           <View>
             <Text style={styles.headerTitle}>OwnAuth</Text>
             <Text style={styles.headerSubtitle}>
-              {settings.cloudSyncEnabled ? 'SELF-HOSTED SYNC' : 'LOCAL ONLY'}
+              {settings.cloudSyncEnabled ? t('sync.selfHostedSync') : t('sync.localOnly')}
             </Text>
           </View>
         </View>
@@ -410,7 +413,7 @@ export default function App() {
         <Search size={20} color={COLORS.slate500} style={styles.searchIcon} />
         <TextInput
           style={styles.searchInput}
-          placeholder="Search your accounts..."
+          placeholder={t('accounts.searchPlaceholder')}
           placeholderTextColor={COLORS.slate500}
           value={searchQuery}
           onChangeText={setSearchQuery}
@@ -432,14 +435,14 @@ export default function App() {
         {filteredAccounts.length === 0 && (
           <View style={styles.emptyState}>
             <Smartphone size={64} color={COLORS.slate700} />
-            <Text style={styles.emptyText}>No accounts found</Text>
+            <Text style={styles.emptyText}>{t('accounts.noAccounts')}</Text>
             <Text
               style={[
                 styles.textSmall,
                 { textAlign: 'center', marginTop: 8, paddingHorizontal: 40 },
               ]}
             >
-              Tap the + button in the bottom right to add new OTP codes.
+              {t('accounts.tapToAdd')}
             </Text>
           </View>
         )}
@@ -481,7 +484,7 @@ export default function App() {
                   }}
                 >
                   <Share2 size={20} color={COLORS.emerald400} />
-                  <Text style={styles.actionText}>Export Account (QR)</Text>
+                  <Text style={styles.actionText}>{t('accounts.exportAccount')}</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
@@ -496,7 +499,7 @@ export default function App() {
                   }}
                 >
                   <Edit2 size={20} color={COLORS.rose400} />
-                  <Text style={styles.actionText}>Edit Account</Text>
+                  <Text style={styles.actionText}>{t('accounts.editAccount')}</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
@@ -506,14 +509,18 @@ export default function App() {
                   }}
                 >
                   <Trash2 size={20} color={COLORS.rose500} />
-                  <Text style={[styles.actionText, { color: COLORS.rose500 }]}>Delete Account</Text>
+                  <Text style={[styles.actionText, { color: COLORS.rose500 }]}>
+                    {t('accounts.deleteAccount')}
+                  </Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
                   style={[styles.actionButton, styles.cancelButton]}
                   onPress={() => setSelectedAccountId(null)}
                 >
-                  <Text style={[styles.actionText, { color: COLORS.slate300 }]}>Cancel</Text>
+                  <Text style={[styles.actionText, { color: COLORS.slate300 }]}>
+                    {t('common.cancel')}
+                  </Text>
                 </TouchableOpacity>
               </View>
             </TouchableWithoutFeedback>
@@ -539,13 +546,13 @@ export default function App() {
               a.id === editingAccount.id ? { ...newAcc, id: editingAccount.id } : a,
             ) as OTPAccount[];
             accountToSync = updatedAccounts.find((a) => a.id === editingAccount.id)!;
-            addToast(`${newAcc.serviceName} updated!`);
+            addToast(`${newAcc.serviceName} ${t('accounts.updated')}`);
           } else {
             // Add
             const newId = generateUUID();
             accountToSync = { ...newAcc, id: newId } as OTPAccount;
             updatedAccounts = [...accounts, accountToSync];
-            addToast(`${newAcc.serviceName} added!`);
+            addToast(`${newAcc.serviceName} ${t('accounts.added')}`);
           }
 
           setAccounts(updatedAccounts);
@@ -585,11 +592,11 @@ export default function App() {
                   secretKey: secret.toUpperCase(),
                 });
                 setActiveModal(ModalType.ACCOUNT_FORM);
-                addToast('QR Code Scanned!');
+                addToast(t('forms.qrScanned'));
               }
             }
           } catch {
-            addToast('Invalid QR Code', 'error');
+            addToast(t('forms.invalidQr'), 'error');
           }
         }}
       />
@@ -637,7 +644,7 @@ export default function App() {
                 }
               }
               setAccounts(newAccounts);
-              addToast('Switched Account', 'success');
+              addToast(t('sync.switchedAccount'), 'success');
 
               // 4. Update Settings but LOCK VAULT
               setSettings((prev) => ({
@@ -648,7 +655,7 @@ export default function App() {
               }));
               setJwtToken(null);
               setMasterKey(null);
-              setLoginPassword(''); // Clear password
+              addToast(t('sync.syncDisabledToast'), 'info'); // Clear password
               setIsUnlocked(false); // Force Login Flow
               setActiveModal(ModalType.NONE); // Close Settings
               return true;
@@ -668,14 +675,14 @@ export default function App() {
             // Sync Initial Local Data to Cloud
             if (!settings.cloudSyncEnabled) {
               await performSync(key, token, undefined, tempSettings);
-              addToast('Sync Enabled', 'success');
+              addToast(t('sync.syncEnabled'), 'success');
             }
 
             setActiveModal(ModalType.NONE); // Close Settings
             return true;
           } catch (e) {
             console.error(e);
-            addToast('Invalid Credentials / Sync Failed', 'error');
+            addToast(t('sync.syncFailed'), 'error');
             return false;
           } finally {
             // Loading finished

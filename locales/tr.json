@@ -1,0 +1,89 @@
+{
+  "common": {
+    "cancel": "İptal",
+    "delete": "Sil",
+    "save": "Değişiklikleri Kaydet",
+    "edit": "Düzenle",
+    "add": "Ekle",
+    "copy": "Kopyala",
+    "error": "Hata",
+    "success": "Başarılı",
+    "info": "Bilgi",
+    "loading": "Yükleniyor...",
+    "search": "Ara",
+    "back": "Geri"
+  },
+  "auth": {
+    "masterPassword": "Ana Şifre",
+    "unlockVault": "Kasayı Aç",
+    "vaultLocked": "KASA KİLİTLENDİ",
+    "passwordRequired": "Şifre gerekli",
+    "unlockFailed": "Kilit Açma/Giriş Başarısız",
+    "sessionExpired": "Oturum süresi doldu, lütfen tekrar giriş yapın",
+    "vaultUnlocked": "Kasa Açıldı",
+    "vaultLockedInfo": "Ana Şifre E2EE şifre çözme için kullanılır."
+  },
+  "sync": {
+    "selfHostedSync": "KENDİ SUNUCUNDA SENKRONİZASYON",
+    "selfHostedSyncTitle": "Kendi Sunucunda Sync",
+    "e2eeStorage": "Uçtan uca şifreli depolama",
+    "localOnly": "SADECE YEREL",
+    "serverUrl": "SUNUCU URL",
+    "username": "KULLANICI ADI",
+    "enableAndSync": "Etkinleştir ve Senkronize Et",
+    "switchAccount": "Hesap Değiştir",
+    "disableSync": "Senkronizasyonu Kapat",
+    "syncFailed": "Senkronizasyon Başarısız",
+    "syncEnabled": "Senkronizasyon Etkin",
+    "switchedAccount": "Hesap Değiştirildi",
+    "vaultLockedToast": "Kasa Kilitlendi",
+    "syncDisabledToast": "Senkronizasyon Devre Dışı",
+    "switchAccountAlertTitle": "Hesap Değiştir ve Verileri Sil",
+    "switchAccountAlertBody": "Uyarı: Hesap değiştirmek, hesaplar arasında veri sızıntısını önlemek için TÜM YEREL OTP KODLARINI SİLECEKTİR.\n\nBu işlem geri alınamaz.",
+    "deleteAndSwitch": "Sil ve Değiştir",
+    "infoBox": "OwnAuth - Verileriniz senkronizasyondan önce yerel olarak AES ile şifrelenir. İlk bağlantıyı başlatmak için ana şifre gereklidir."
+  },
+  "accounts": {
+    "searchPlaceholder": "Hesaplarınızı arayın...",
+    "noAccounts": "Hesap bulunamadı",
+    "tapToAdd": "Yeni OTP kodları eklemek için sağ alttaki + düğmesine dokunun.",
+    "addAccount": "Hesap Ekle",
+    "editAccount": "Hesabı Düzenle",
+    "deleteAccount": "Hesabı Sil",
+    "exportAccount": "Hesabı Dışa Aktar (QR)",
+    "deleteConfirmationTitle": "Hesabı Sil",
+    "deleteConfirmationBody": "Bu hesabı silmek istediğinizden emin misiniz?",
+    "accountRemoved": "Hesap kaldırıldı",
+    "added": "eklendi!",
+    "updated": "güncellendi!",
+    "copied": "kod kopyalandı!"
+  },
+  "forms": {
+    "service": "HİZMET",
+    "usernameEmail": "KULLANICI / E-POSTA",
+    "secretKey": "GİZLİ ANAHTAR",
+    "scanQrCode": "QR Kodu Tara",
+    "servicePlaceholder": "örn. GitHub",
+    "usernamePlaceholder": "kullanici@ornek.com",
+    "secretPlaceholder": "2FA ANAHTARI",
+    "qrScanned": "QR Kodu Tarandı!",
+    "invalidQr": "Geçersiz QR Kodu"
+  },
+  "modals": {
+    "aboutTitle": "OwnAuth Hakkında",
+    "aboutSubtitle": "Basit, Güvenli, Kendi Sunucunda 2FA",
+    "aboutDescription": "OwnAuth, gizlilik ve kontrol için tasarlanmış açık kaynaklı bir iki faktörlü kimlik doğrulama uygulamasıdır. Anahtarlarınız şifrelenir ve tamamen size aittir.",
+    "sourceCode": "Kaynak Kodu",
+    "mobileApp": "Mobil Uygulama",
+    "syncServer": "Senkronizasyon Sunucusu",
+    "licenseInfo": "MIT Lisansı altında yayınlanmıştır",
+    "exportQrTitle": "QR Dışa Aktar",
+    "exportQrBody": "Hesabınızı transfer etmek için bu QR kodunu başka bir 2FA uygulamasıyla tarayın."
+  },
+  "permissions": {
+    "cameraRequiredTitle": "Kamera Erişimi Gerekli",
+    "cameraRequiredBody": "OwnAuth, 2FA kurulumu için QR kodlarını taramak üzere kameranıza erişim iznine ihtiyaç duyar.",
+    "openSettings": "Ayarları Aç",
+    "grantPermission": "İzin Ver"
+  }
+}
