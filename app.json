@@ -1,0 +1,15 @@
+{
+  "name": "OwnAuth",
+  "slug": "ownauth",
+  "icon": "./assets/icon.png",
+  "android": {
+    "adaptiveIcon": {
+      "foregroundImage": "./assets/adaptive-icon.png",
+      "backgroundColor": "#0f172a"
+    },
+    "package": "com.rosavpn.rosaauth"
+  },
+  "ios": {
+    "bundleIdentifier": "com.rosavpn.rosaauth"
+  }
+}

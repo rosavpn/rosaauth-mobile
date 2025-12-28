@@ -1,0 +1,58 @@
+# MacOS
+.DS_Store
+
+# Node modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Expo
+.expo/
+dist/
+web-build/
+
+# Native Builds (Android)
+android/.gradle
+android/local.properties
+android/app/build
+android/build
+android/.idea
+android/app/src/main/assets/
+# Keep index.android.bundle if managed manually, but usually ignored in expo/RN
+android/app/src/main/assets/index.android.bundle
+
+# Native Builds (iOS)
+ios/Pods/
+ios/build/
+ios/.xcode.env.local
+ios/.xcode.env
+!ios/.xcode.env
+# Keep workspace if you want, but strictly pod install generates it.
+# Usually we ignore it if using pods.
+ios/*.xcworkspace
+ios/*.xcodeproj/project.xcworkspace
+ios/*.xcodeproj/xcuserdata
+
+# Android
+android/app/src/main/assets/index.android.bundle
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Editor files
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+
+# Bundles
+*.bundle
+
+# Other
+coverage/
+.metro/
+npm-debug.log
