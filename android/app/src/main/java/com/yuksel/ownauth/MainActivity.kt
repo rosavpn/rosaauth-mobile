@@ -1,4 +1,4 @@
-package com.rosavpn.rosaauth
+package com.yuksel.ownauth
 
 import android.os.Build
 import android.os.Bundle
