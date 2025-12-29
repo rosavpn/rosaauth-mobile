@@ -7,9 +7,9 @@
       "foregroundImage": "./assets/adaptive-icon.png",
       "backgroundColor": "#0f172a"
     },
-    "package": "com.rosavpn.rosaauth"
+    "package": "com.yuksel.ownauth"
   },
   "ios": {
-    "bundleIdentifier": "com.rosavpn.rosaauth"
+    "bundleIdentifier": "com.yuksel.ownauth"
   }
 }
