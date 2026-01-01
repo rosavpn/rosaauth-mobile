@@ -9,6 +9,8 @@ import {
   Alert,
   StatusBar,
   TouchableWithoutFeedback,
+  KeyboardAvoidingView,
+  Platform,
 } from 'react-native';
 import { install } from 'react-native-quick-crypto';
 import './services/i18n'; // Init i18n
@@ -329,7 +331,10 @@ export default function App() {
   // --- Locked View ---
   if (settings.cloudSyncEnabled && !isUnlocked) {
     return (
-      <View style={[styles.container, styles.centerContent]}>
+      <KeyboardAvoidingView
+        style={[styles.container, styles.centerContent]}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      >
         <StatusBar barStyle="light-content" />
         <View style={styles.lockContainer}>
           <View style={styles.lockIconContainer}>
@@ -369,7 +374,7 @@ export default function App() {
           <Text style={styles.footerNote}>{t('auth.vaultLockedInfo')}</Text>
         </View>
         <ToastContainer toasts={toasts} />
-      </View>
+      </KeyboardAvoidingView>
     );
   }
 

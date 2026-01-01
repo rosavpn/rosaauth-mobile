@@ -1,5 +1,15 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, TextInput, Modal, ScrollView, Alert } from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  TextInput,
+  Modal,
+  ScrollView,
+  Alert,
+  KeyboardAvoidingView,
+  Platform,
+} from 'react-native';
 import { X, Shield, RefreshCw, Cloud, Info } from 'lucide-react-native';
 import { useTranslation } from 'react-i18next';
 import { AppSettings } from '../../types';
@@ -33,7 +43,10 @@ export function SettingsModal({
 
   return (
     <Modal visible={visible} animationType="slide" presentationStyle="pageSheet">
-      <View style={styles.container}>
+      <KeyboardAvoidingView
+        style={styles.container}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      >
         <View style={[styles.modalHeader, { padding: 20 }]}>
           <Text style={styles.modalTitle}>{t('modals.settingsTitle')}</Text>
           <TouchableOpacity style={styles.closeButton} onPress={onClose}>
@@ -137,7 +150,7 @@ export function SettingsModal({
             <Text style={styles.infoText}>{t('sync.infoBox')}</Text>
           </View>
         </ScrollView>
-      </View>
+      </KeyboardAvoidingView>
     </Modal>
   );
 }
