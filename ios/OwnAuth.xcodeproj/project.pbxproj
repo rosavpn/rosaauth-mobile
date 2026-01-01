@@ -7,29 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02470625F508D5C172340331 /* libPods-OwnAuth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A05489E075D92F57186528 /* libPods-OwnAuth.a */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
-		31EB79FEAAE40AF42220F967 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EC80DF72AFB7BC34C4CAF3 /* ExpoModulesProvider.swift */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
-		47EABF5BE67867F9E5644CAA /* libPods-rosaauth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC582F8A63693E18999FAD20 /* libPods-rosaauth.a */; };
+		4B2EE997EF4BAF2AF795D744 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91084AD7393CB30E6F74295 /* ExpoModulesProvider.swift */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
-		C1AD6B4D1337975F0D8C6D9A /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 2DEF99A94A8DC738EC0945AA /* PrivacyInfo.xcprivacy */; };
+		C6CCAF07C43BC872930FC445 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 237A832D362B2EE992141D20 /* PrivacyInfo.xcprivacy */; };
 		F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11748412D0307B40044C1D9 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		005FD424DAE44E6D72160FBA /* Pods-rosaauth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rosaauth.release.xcconfig"; path = "Target Support Files/Pods-rosaauth/Pods-rosaauth.release.xcconfig"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* rosaauth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rosaauth.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = rosaauth/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = rosaauth/Info.plist; sourceTree = "<group>"; };
-		2DEF99A94A8DC738EC0945AA /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = rosaauth/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = rosaauth/SplashScreen.storyboard; sourceTree = "<group>"; };
-		AC582F8A63693E18999FAD20 /* libPods-rosaauth.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-rosaauth.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		07FB340A566C6CBF017E63E5 /* Pods-OwnAuth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OwnAuth.release.xcconfig"; path = "Target Support Files/Pods-OwnAuth/Pods-OwnAuth.release.xcconfig"; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* OwnAuth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OwnAuth.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = OwnAuth/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = OwnAuth/Info.plist; sourceTree = "<group>"; };
+		237A832D362B2EE992141D20 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = OwnAuth/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		55C741EFA76D5BC7E2C2F0DB /* Pods-OwnAuth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OwnAuth.debug.xcconfig"; path = "Target Support Files/Pods-OwnAuth/Pods-OwnAuth.debug.xcconfig"; sourceTree = "<group>"; };
+		A9A05489E075D92F57186528 /* libPods-OwnAuth.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OwnAuth.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = OwnAuth/SplashScreen.storyboard; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
-		C1BDDE871830F51D7EB13CE4 /* Pods-rosaauth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rosaauth.debug.xcconfig"; path = "Target Support Files/Pods-rosaauth/Pods-rosaauth.debug.xcconfig"; sourceTree = "<group>"; };
+		D91084AD7393CB30E6F74295 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-OwnAuth/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = rosaauth/AppDelegate.swift; sourceTree = "<group>"; };
-		F11748442D0722820044C1D9 /* rosaauth-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "rosaauth-Bridging-Header.h"; path = "rosaauth/rosaauth-Bridging-Header.h"; sourceTree = "<group>"; };
-		F2EC80DF72AFB7BC34C4CAF3 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-rosaauth/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = OwnAuth/AppDelegate.swift; sourceTree = "<group>"; };
+		F11748442D0722820044C1D9 /* OwnAuth-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "OwnAuth-Bridging-Header.h"; path = "OwnAuth/OwnAuth-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,42 +37,34 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				47EABF5BE67867F9E5644CAA /* libPods-rosaauth.a in Frameworks */,
+				02470625F508D5C172340331 /* libPods-OwnAuth.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		13B07FAE1A68108700A75B9A /* rosaauth */ = {
+		13B07FAE1A68108700A75B9A /* OwnAuth */ = {
 			isa = PBXGroup;
 			children = (
 				F11748412D0307B40044C1D9 /* AppDelegate.swift */,
-				F11748442D0722820044C1D9 /* rosaauth-Bridging-Header.h */,
+				F11748442D0722820044C1D9 /* OwnAuth-Bridging-Header.h */,
 				BB2F792B24A3F905000567C9 /* Supporting */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
-				2DEF99A94A8DC738EC0945AA /* PrivacyInfo.xcprivacy */,
+				237A832D362B2EE992141D20 /* PrivacyInfo.xcprivacy */,
 			);
-			name = rosaauth;
+			name = OwnAuth;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				AC582F8A63693E18999FAD20 /* libPods-rosaauth.a */,
+				A9A05489E075D92F57186528 /* libPods-OwnAuth.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		58C78DFF57B46140D0352CDB /* ExpoModulesProviders */ = {
-			isa = PBXGroup;
-			children = (
-				ADB42A90F6C669DCD1496F32 /* rosaauth */,
-			);
-			name = ExpoModulesProviders;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -85,12 +77,12 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* rosaauth */,
+				13B07FAE1A68108700A75B9A /* OwnAuth */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				FD9CEF7CF0BDC0830A6739CD /* Pods */,
-				58C78DFF57B46140D0352CDB /* ExpoModulesProviders */,
+				B985406B84261F8CC6C1187D /* Pods */,
+				D5AFBF0695B360A5F1BEF8A3 /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -100,17 +92,26 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* rosaauth.app */,
+				13B07F961A680F5B00A75B9A /* OwnAuth.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		ADB42A90F6C669DCD1496F32 /* rosaauth */ = {
+		B95328228993FD000D1446CE /* OwnAuth */ = {
 			isa = PBXGroup;
 			children = (
-				F2EC80DF72AFB7BC34C4CAF3 /* ExpoModulesProvider.swift */,
+				D91084AD7393CB30E6F74295 /* ExpoModulesProvider.swift */,
 			);
-			name = rosaauth;
+			name = OwnAuth;
+			sourceTree = "<group>";
+		};
+		B985406B84261F8CC6C1187D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				55C741EFA76D5BC7E2C2F0DB /* Pods-OwnAuth.debug.xcconfig */,
+				07FB340A566C6CBF017E63E5 /* Pods-OwnAuth.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		BB2F792B24A3F905000567C9 /* Supporting */ = {
@@ -119,42 +120,40 @@
 				BB2F792C24A3F905000567C9 /* Expo.plist */,
 			);
 			name = Supporting;
-			path = rosaauth/Supporting;
+			path = OwnAuth/Supporting;
 			sourceTree = "<group>";
 		};
-		FD9CEF7CF0BDC0830A6739CD /* Pods */ = {
+		D5AFBF0695B360A5F1BEF8A3 /* ExpoModulesProviders */ = {
 			isa = PBXGroup;
 			children = (
-				C1BDDE871830F51D7EB13CE4 /* Pods-rosaauth.debug.xcconfig */,
-				005FD424DAE44E6D72160FBA /* Pods-rosaauth.release.xcconfig */,
+				B95328228993FD000D1446CE /* OwnAuth */,
 			);
-			name = Pods;
-			path = Pods;
+			name = ExpoModulesProviders;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		13B07F861A680F5B00A75B9A /* rosaauth */ = {
+		13B07F861A680F5B00A75B9A /* OwnAuth */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "rosaauth" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "OwnAuth" */;
 			buildPhases = (
 				08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */,
-				4E87BA54659F3844E4A1C284 /* [Expo] Configure project */,
+				09E8CBDE943F6C5B929971B2 /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */,
-				1152F5DA12F8F06205988AC9 /* [CP] Embed Pods Frameworks */,
+				722F9C6B196DF0B78FBA7707 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = rosaauth;
-			productName = rosaauth;
-			productReference = 13B07F961A680F5B00A75B9A /* rosaauth.app */;
+			name = OwnAuth;
+			productName = OwnAuth;
+			productReference = 13B07F961A680F5B00A75B9A /* OwnAuth.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -170,7 +169,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "rosaauth" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "OwnAuth" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -183,7 +182,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* rosaauth */,
+				13B07F861A680F5B00A75B9A /* OwnAuth */,
 			);
 		};
 /* End PBXProject section */
@@ -196,7 +195,7 @@
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
-				C1AD6B4D1337975F0D8C6D9A /* PrivacyInfo.xcprivacy in Resources */,
+				C6CCAF07C43BC872930FC445 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,20 +234,44 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-rosaauth-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-OwnAuth-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1152F5DA12F8F06205988AC9 /* [CP] Embed Pods Frameworks */ = {
+		09E8CBDE943F6C5B929971B2 /* [Expo] Configure project */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/.xcode.env",
+				"$(SRCROOT)/.xcode.env.local",
+				"$(SRCROOT)/OwnAuth/OwnAuth.entitlements",
+				"$(SRCROOT)/Pods/Target Support Files/Pods-OwnAuth/expo-configure-project.sh",
+			);
+			name = "[Expo] Configure project";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/Pods/Target Support Files/Pods-OwnAuth/ExpoModulesProvider.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-OwnAuth/expo-configure-project.sh\"\n";
+		};
+		722F9C6B196DF0B78FBA7707 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-rosaauth/Pods-rosaauth-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-OwnAuth/Pods-OwnAuth-frameworks.sh",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/QuickCrypto/OpenSSL.framework/OpenSSL",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/React-Core-prebuilt/React.framework/React",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/ReactNativeDependencies/ReactNativeDependencies.framework/ReactNativeDependencies",
@@ -263,32 +286,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-rosaauth/Pods-rosaauth-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OwnAuth/Pods-OwnAuth-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		4E87BA54659F3844E4A1C284 /* [Expo] Configure project */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/.xcode.env",
-				"$(SRCROOT)/.xcode.env.local",
-				"$(SRCROOT)/rosaauth/rosaauth.entitlements",
-				"$(SRCROOT)/Pods/Target Support Files/Pods-rosaauth/expo-configure-project.sh",
-			);
-			name = "[Expo] Configure project";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(SRCROOT)/Pods/Target Support Files/Pods-rosaauth/ExpoModulesProvider.swift",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-rosaauth/expo-configure-project.sh\"\n";
 		};
 		800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -296,7 +295,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-rosaauth/Pods-rosaauth-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-OwnAuth/Pods-OwnAuth-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/EXConstants/EXConstants.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/EXConstants/ExpoConstants_privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/ExpoFileSystem/ExpoFileSystem_privacy.bundle",
@@ -319,7 +318,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-rosaauth/Pods-rosaauth-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OwnAuth/Pods-OwnAuth-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -330,7 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */,
-				31EB79FEAAE40AF42220F967 /* ExpoModulesProvider.swift in Sources */,
+				4B2EE997EF4BAF2AF795D744 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,18 +338,19 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C1BDDE871830F51D7EB13CE4 /* Pods-rosaauth.debug.xcconfig */;
+			baseConfigurationReference = 55C741EFA76D5BC7E2C2F0DB /* Pods-OwnAuth.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = rosaauth/rosaauth.entitlements;
+				CODE_SIGN_ENTITLEMENTS = OwnAuth/OwnAuth.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UY8D87SF2F;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"FB_SONARKIT_ENABLED=1",
 				);
-				INFOPLIST_FILE = rosaauth/Info.plist;
+				INFOPLIST_FILE = OwnAuth/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -364,24 +364,25 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yuksel.ownauth;
-				PRODUCT_NAME = rosaauth;
-				SWIFT_OBJC_BRIDGING_HEADER = "rosaauth/rosaauth-Bridging-Header.h";
+				PRODUCT_NAME = OwnAuth;
+				SWIFT_OBJC_BRIDGING_HEADER = "OwnAuth/OwnAuth-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 005FD424DAE44E6D72160FBA /* Pods-rosaauth.release.xcconfig */;
+			baseConfigurationReference = 07FB340A566C6CBF017E63E5 /* Pods-OwnAuth.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = rosaauth/rosaauth.entitlements;
+				CODE_SIGN_ENTITLEMENTS = OwnAuth/OwnAuth.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = rosaauth/Info.plist;
+				DEVELOPMENT_TEAM = UY8D87SF2F;
+				INFOPLIST_FILE = OwnAuth/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -395,10 +396,10 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yuksel.ownauth;
-				PRODUCT_NAME = rosaauth;
-				SWIFT_OBJC_BRIDGING_HEADER = "rosaauth/rosaauth-Bridging-Header.h";
+				PRODUCT_NAME = OwnAuth;
+				SWIFT_OBJC_BRIDGING_HEADER = "OwnAuth/OwnAuth-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -524,7 +525,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "rosaauth" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "OwnAuth" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -533,7 +534,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "rosaauth" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "OwnAuth" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
