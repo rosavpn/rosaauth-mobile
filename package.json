@@ -27,7 +27,7 @@
     "otpauth": "^9.4.1",
     "qrcode": "^1.5.3",
     "react": "19.1.0",
-    "react-dom": "19.1.0",
+    "react-dom": "19.2.3",
     "react-i18next": "^16.5.0",
     "react-native": "0.81.5",
     "react-native-qrcode-svg": "^6.3.21",
